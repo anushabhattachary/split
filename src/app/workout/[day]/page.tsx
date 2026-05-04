@@ -271,13 +271,18 @@ export default function WorkoutPlayer({ params }: { params: Promise<{ day: strin
             return (
               <div key={`${ex.id}-${idx}`} className="relative bg-white rounded-[2rem] overflow-hidden shadow-soft my-6 border-2 border-white transition-all">
                 {/* Visual Area (Animation Fallback to CSS gradient if no video) */}
-                <div className="h-64 bg-blush/20 relative flex items-center justify-center overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40 z-10"></div>
-                  {/* Since we don't have real videos yet, use a colorful placeholder */}
-                  <div className="text-charcoal/30 font-serif text-3xl z-0">
-                    {/* Ideally Lottie goes here */}
-                    {ex.name[0]}
-                  </div>
+                <div className="h-64 bg-cream/50 relative flex items-center justify-center overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 z-10"></div>
+                  
+                  {ex.animationSrc.endsWith('.mp4') || ex.animationSrc.endsWith('.webm') ? (
+                    <video src={ex.animationSrc} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-60 z-0" />
+                  ) : ex.animationSrc.endsWith('.svg') || ex.animationSrc.endsWith('.png') || ex.animationSrc.endsWith('.jpg') ? (
+                    <img src={ex.animationSrc} alt={ex.name} className="absolute inset-0 w-full h-full object-cover opacity-60 z-0" />
+                  ) : (
+                    <div className="text-charcoal/30 font-serif text-3xl z-0">
+                      {ex.name[0]}
+                    </div>
+                  )}
                   
                   {/* Timer Ring / Progress visual could go here */}
                   <div className="absolute bottom-4 left-4 right-4 z-20 flex justify-between items-end text-white">
