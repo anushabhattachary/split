@@ -1,0 +1,16 @@
+{
+  "name": "Lean Girl Daily",
+  "short_name": "Lean Girl",
+  "description": "Anusha's Personal Pilates-Girl Workout PWA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8F1EA",
+  "theme_color": "#F8F1EA",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
